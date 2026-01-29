@@ -10,19 +10,20 @@
  * }
  */
 public class Solution {
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         int headASize = 0;
         int headBSize = 0;
 
         ListNode headALink = headA;
         ListNode headBLink = headB;
+        ListNode intersection = null;
 
         while (headALink != null || headBLink != null) {
             // This one will handle if the lists original size's are the same
             // So meaning, their intersection will start at the same location for both
             if (headALink != null && headBLink != null) {
                 if (headALink == headBLink) {
-                    return headALink;
+                    intersection = headALink;
                 }
             }
 
@@ -40,6 +41,7 @@ public class Solution {
                 headBLink = headBLink.next;
             }
         }
+
 
         // below 2 conditionals are used to
         if (headASize > headBSize) {
